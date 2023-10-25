@@ -2,7 +2,7 @@
 function myFind(arr, func) {
     for (let i = 0; i < arr.length; i++) {
         //  si el elemento cumple con la función, lo retorna
-        if (func(arr[i], i)) {
+        if (func(arr[i])) {
             return arr[i]
         }
     }
