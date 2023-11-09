@@ -1,0 +1,15 @@
+.square {
+    background-color: #363B74;
+    border: medium solid #000;
+    border-radius: 0.25rem;
+    color: #FFF;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 3rem;
+    height: 9.75rem;
+    width: 9.75rem;
+}
+
+.square:hover {
+    background-color: #FF2E63;
+}

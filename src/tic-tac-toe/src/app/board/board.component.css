@@ -1,0 +1,39 @@
+h2 {
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 30rem;
+  height: 30rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.newGame {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 15rem;
+}
+
+.newGame button {
+  background-color: #FF2E63;
+  border-radius: 0.75rem;
+  color: #FFF;
+  cursor: pointer;
+  font-family: sans-serif;
+  height: 3rem;
+  width: 100%;
+}
+
+.newGame button:active {
+  background-color: #FF2E63DD;
+}
+
+.winner {
+  width: 100%;
+  text-align: center;
+}
