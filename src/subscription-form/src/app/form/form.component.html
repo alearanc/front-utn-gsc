@@ -1,0 +1,162 @@
+<div class="container">
+  <div class="title">
+    {{ title }}
+  </div>
+  <form [formGroup]="subscriptionForm" (ngSubmit)="submit()">
+    <div class="user-details">
+      <div class="input-box">
+        <label class="details" for="firstName">Nombre</label>
+        <input
+          type="text"
+          id="firstName"
+          formControlName="firstName"
+          placeholder="Escriba su nombre"
+        />
+        <small class="error" *ngIf="firstName.touched && firstName.pristine"
+          ><br />El nombre es requerido</small
+        >
+        <small class="error" *ngIf="firstName.dirty && firstName.invalid"
+          ><br />El nombre excede la longitud máxima ({{
+            maxNameLength
+          }})</small
+        >
+      </div>
+      <div class="input-box">
+        <label class="details" for="lastName">Apellido</label>
+        <input
+          type="text"
+          id="lastName"
+          formControlName="lastName"
+          placeholder="Escriba su apellido"
+        />
+        <small class="error" *ngIf="lastName.touched && lastName.pristine"
+          ><br />El apellido es requerido</small
+        >
+        <small class="error" *ngIf="lastName.dirty && lastName.invalid"
+          ><br />El apellido excede la longitud máxima ({{
+            maxNameLength
+          }})</small
+        >
+      </div>
+      <div class="input-box">
+        <label class="details" for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="your@email.com"
+        />
+        <small class="error" *ngIf="email.touched && email.pristine"
+          ><br />El email es requerido</small
+        >
+        <small class="error" *ngIf="email.dirty && email.invalid"
+          ><br />Revise el formato</small
+        >
+      </div>
+      <div class="input-box">
+        <label class="details" for="confirmEmail">Confirmación de email</label>
+        <input
+          type="email"
+          id="confirmEmail"
+          formControlName="confirmEmail"
+          placeholder="your@email.com"
+        />
+        <small
+          class="error"
+          *ngIf="confirmEmail.touched && confirmEmail.pristine"
+          ><br />Confirme su email</small
+        >
+        <small class="error" *ngIf="confirmEmail.dirty && confirmEmail.invalid"
+          ><br />Revise el formato</small
+        >
+        <small class="error" *ngIf="email.value !== confirmEmail.value"
+          ><br />El email no coincide</small
+        >
+      </div>
+      <div class="input-box">
+        <label class="details" for="phone">Teléfono</label>
+        <input
+          type="phone"
+          id="phone"
+          formControlName="phone"
+          placeholder="Número sin 0 ni 15"
+        />
+        <small class="error" *ngIf="phone.touched && phone.pristine"
+          ><br />El teléfono es requerido</small
+        >
+        <small class="error" *ngIf="phone.dirty && phone.invalid"
+          ><br />Ingrese el número sin 0 ni 15</small
+        >
+      </div>
+      <div class="input-box">
+        <label class="details" for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Escriba una contraseña"
+        />
+        <small class="error" *ngIf="password.touched && password.pristine"
+          ><br />La contraseña es requerida</small
+        >
+        <small class="error" *ngIf="password.dirty && password.invalid"
+          ><br />La contraseña debe tener por lo menos
+          {{ passwordLength }} caracteres</small
+        >
+      </div>
+    </div>
+    <div class="notifications-details">
+      <span class="notifications-title">¿Desea recibir notificaciones?</span>
+      <small class="error" *ngIf="notifications.invalid && terms.valid"
+        ><br />Este campo es requerido</small
+      >
+      <div class="options">
+        <input
+          type="radio"
+          name="notifications"
+          id="radio-yes"
+          formControlName="notifications"
+          value="yes"
+        />
+        <label for="radio-yes">
+          <span class="option">Sí, deseo recibir notificaciones</span>
+        </label>
+        <input
+          type="radio"
+          name="notifications"
+          id="radio-no"
+          formControlName="notifications"
+          value="no"
+        />
+        <label for="radio-no">
+          <span class="option">
+            No estoy interesado en recibir notificaciones
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="terms">
+      <input type="checkbox" id="terms" formControlName="terms" />
+      <label for="terms"> Acepto los términos y condiciones </label>
+      <small
+        class="error"
+        *ngIf="
+          firstName.valid &&
+          lastName.valid &&
+          email.valid &&
+          confirmEmail.valid &&
+          phone.valid &&
+          password.valid &&
+          notifications.valid &&
+          terms.invalid
+        "
+        ><br />Debe aceptar los términos y condiciones para continuar</small
+      >
+    </div>
+    <div class="button">
+      <button type="submit" [disabled]="subscriptionForm.invalid">
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>
