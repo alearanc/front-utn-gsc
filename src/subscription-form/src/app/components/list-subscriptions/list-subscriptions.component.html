@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="title">Listado de suscripciones existentes</div>
+  <div class="list">
+    <div *ngFor="let sub of subscriptions" class="details">
+      Id: {{ sub.id }} <br />
+      Nombre y apellido: {{ sub.firstName }} {{sub.lastName}} <br>
+      Email: {{sub.email}} <br>
+      Teléfono: {{sub.phone}} <br>
+      Notificaciones habilitadas: {{sub.notifications}}
+    </div>
+  </div>
+</div>

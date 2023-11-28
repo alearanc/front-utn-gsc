@@ -2,7 +2,7 @@
   <div class="title">
     {{ title }}
   </div>
-  <form [formGroup]="subscriptionForm" (ngSubmit)="submit()">
+  <form [formGroup]="subscriptionForm" (ngSubmit)="createSubscription()">
     <div class="user-details">
       <div class="input-box">
         <label class="details" for="firstName">Nombre</label>
@@ -116,7 +116,7 @@
           name="notifications"
           id="radio-yes"
           formControlName="notifications"
-          value="yes"
+          value="true"
         />
         <label for="radio-yes">
           <span class="option">Sí, deseo recibir notificaciones</span>
@@ -126,7 +126,7 @@
           name="notifications"
           id="radio-no"
           formControlName="notifications"
-          value="no"
+          value="false"
         />
         <label for="radio-no">
           <span class="option">

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 994,
+    "firstName": "Gordon",
+    "lastName": "Freeman",
+    "email": "gordonfreeman@blackmesa.com",
+    "phone": "0123456789",
+    "password": "1234",
+    "notifications": false
+  },
+  {
+    "id": 995,
+    "firstName": "Alyx",
+    "lastName": "Vance",
+    "email": "alyxvance@gmail.com",
+    "phone": "3214564987",
+    "password": "1111",
+    "notifications": false
+  },
+  {
+    "id": 996,
+    "firstName": "Eli",
+    "lastName": "Vance",
+    "email": "elivance@blackmesa.com",
+    "phone": "3214564989",
+    "password": "9874",
+    "notifications": false
+  },
+  {
+    "id": 997,
+    "firstName": "Isaac",
+    "lastName": "Kleiner",
+    "email": "isaackleiner@blackmesa.com",
+    "phone": "6549871234",
+    "password": "2222",
+    "notifications": true
+  },
+  {
+    "id": 998,
+    "firstName": "Barney",
+    "lastName": "Calhoun",
+    "email": "barneycalhoun@hotmail.com",
+    "phone": "9514563548",
+    "password": "5612",
+    "notifications": false
+  }
+]

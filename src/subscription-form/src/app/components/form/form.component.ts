@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { matchEmail } from '../shared/email.validator';
-import { SubscriptionService } from '../subscription.service';
+import { matchEmail } from '../../shared/email.validator';
+import { SubscriptionService } from '../../services/subscription.service';
+import { SubscriptionBackendService } from '../../services/subscription-backend.service';
+import { Subscription } from '../../interfaces/subscription.interface';
 
 @Component({
   selector: 'app-form',
@@ -9,13 +11,15 @@ import { SubscriptionService } from '../subscription.service';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent {
-  constructor(private fb: FormBuilder, private sc: SubscriptionService) {}
+  constructor(private fb: FormBuilder, private sc: SubscriptionService, private sbs: SubscriptionBackendService) {}
   title = 'Formulario de suscripción'
   maxNameLength = 20;
   passwordLength = 4;
-  phoneLength = 10
+  phoneLength = 10;
+  proxId = 0;
   subscriptionForm = this.fb.group(
     {
+      id: this.proxId,
       firstName: ['', [Validators.required, Validators.maxLength(this.maxNameLength)]],
       lastName: ['', [Validators.required, Validators.maxLength(this.maxNameLength)]],
       email: ['', [Validators.required, Validators.email]],
@@ -28,14 +32,18 @@ export class FormComponent {
         '',
         [Validators.required, Validators.minLength(this.passwordLength)],
       ],
-      notifications: ['', [Validators.required]],
+      notifications: [ , [Validators.required]],
       terms: ['', [Validators.requiredTrue]],
     },
     { validators: matchEmail }
   );
 
-  submit() {
-    this.sc.process(this.subscriptionForm.value);
+  createSubscription() {
+    this.proxId++;
+    this.sbs.createSubscription(this.subscriptionForm.value).subscribe({
+      next: (res) => {console.log(res)},
+      error: (err) => {console.log(err)}
+    });
   }
 
   get firstName() {
